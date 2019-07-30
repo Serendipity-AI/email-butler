@@ -1,18 +1,16 @@
 export const defaultDomains = [
-  "msn.com",
-  "icloud.com",
-  "mac.com",
-  "googlemail.com",
   "gmail.com",
-  "aim.com",
-  "verizon.net",
-  "google.com",
-  "aol.com",
+  "hotmail.com",
+  "icloud.com",
+  "live.com",
+  "mac.com",
   "me.com",
-  "weforum.org",
+  "msn.com",
+  "outlook.com",
+  "yahoo.com",
 ];
 
-export const defaultSecondLevelDomains = ["yahoo", "hotmail", "mail", "live", "outlook", "gmx"];
+export const defaultSecondLevelDomains = ["gmail", "hotmail", "icloud", "live", "mac", "me", "msn", "outlook", "yahoo"];
 
 export const defaultTopLevelDomains = [
   "com",

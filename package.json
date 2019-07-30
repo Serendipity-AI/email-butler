@@ -1,7 +1,7 @@
 {
-  "name": "js-email-checker",
-  "version": "1.0.2",
-  "description": "Check email domain for spelling mistakes",
+  "name": "email-butler",
+  "version": "1.0.3",
+  "description": "Verify emails and suggest correct spelling for the email domain.",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "files": [
