@@ -74,8 +74,9 @@ const splitEmail = (email: string) => {
   } else if (domainParts.length === 1) {
     topLevelDomain = domainParts[0]; // One top-level domain
   } else {
-    secondLevelDomain = domainParts[0];
-    domainParts.forEach(domainPart => {
+    const [second, ...rest] = domainParts;
+    secondLevelDomain = second;
+    rest.forEach(domainPart => {
       topLevelDomain += domainPart + ".";
     });
     topLevelDomain = topLevelDomain.substring(0, topLevelDomain.length - 1);
@@ -119,8 +120,15 @@ export const suggest = (email: string, options?: Partial<EmailCheckerOptions>) =
   }
 
   // The email address does not closely match one of the supplied domains
-  const closestSecondLevelDomain = findClosestDomain(secondLevelDomain, secondLevelDomains, secondLevelThreshold);
-  const closestTopLevelDomain = findClosestDomain(topLevelDomain, topLevelDomains, topLevelThreshold);
+
+  let closestSecondLevelDomain: string | undefined = secondLevelDomain;
+  if (!secondLevelDomains.includes(secondLevelDomain)) {
+    closestSecondLevelDomain = findClosestDomain(secondLevelDomain, secondLevelDomains, secondLevelThreshold);
+  }
+  let closestTopLevelDomain: string | undefined = topLevelDomain;
+  if (!topLevelDomains.includes(topLevelDomain)) {
+    closestTopLevelDomain = findClosestDomain(topLevelDomain, topLevelDomains, topLevelThreshold);
+  }
 
   if (domain) {
     closestDomain = domain;

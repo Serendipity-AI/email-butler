@@ -17,6 +17,10 @@ test("Other top domain", () => {
   expect(suggest("test@gnail.se")).toEqual({ address: "test", domain: "gmail.se", full: "test@gmail.se" });
 });
 
+test("MSN", () => {
+  expect(suggest("test@msn.com")).toBe(undefined);
+});
+
 test("Override domains", () => {
   expect(suggestWithOptions("test@testdomian.org")).toEqual({
     address: "test",
