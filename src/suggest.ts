@@ -1,13 +1,13 @@
 import { defaultDomains, defaultSecondLevelDomains, defaultTopLevelDomains } from "./utils/config";
 import { sift4Distance } from "./utils/sift4Distance";
 
-export interface EmailCheckResponse {
+export interface EmailButlerResponse {
   address: string;
   domain: string;
   full: string;
 }
 
-export interface EmailCheckerOptions {
+export interface EmailButlerOptions {
   domains: string[];
   topLevelDomains: string[];
   secondLevelDomains: string[];
@@ -89,7 +89,7 @@ const splitEmail = (email: string) => {
   };
 };
 
-export const suggest = (email: string, options?: Partial<EmailCheckerOptions>) => {
+export const suggest = (email: string, options?: Partial<EmailButlerOptions>) => {
   const emailParts = splitEmail(encodeEmail(email.toLowerCase()));
   if (!emailParts || !emailParts.domain) {
     return;
