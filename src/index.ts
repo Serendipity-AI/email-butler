@@ -6,6 +6,6 @@ const defaultValues = {
   topLevelDomains: defaultTopLevelDomains,
 };
 
-export { suggest } from "./suggest";
+export { suggest, EmailCheckResponse, EmailCheckerOptions } from "./suggest";
 export { validate } from "./validate";
 export { defaultValues };
