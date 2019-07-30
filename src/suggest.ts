@@ -1,5 +1,5 @@
-import { defaultDomains, defaultSecondLevelDomains, defaultTopLevelDomains } from "./config";
-import { sift4Distance } from "./sift4Distance";
+import { defaultDomains, defaultSecondLevelDomains, defaultTopLevelDomains } from "./utils/config";
+import { sift4Distance } from "./utils/sift4Distance";
 
 export interface EmailCheckResponse {
   address: string;

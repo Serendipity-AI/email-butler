@@ -1,4 +1,4 @@
-import { defaultDomains, defaultSecondLevelDomains, defaultTopLevelDomains } from "./config";
+import { defaultDomains, defaultSecondLevelDomains, defaultTopLevelDomains } from "./utils/config";
 
 const defaultValues = {
   domains: defaultDomains,
