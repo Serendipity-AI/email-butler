@@ -20,7 +20,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/the-urban-coder/email-checker-js.git"
+    "url": "git+https://github.com/Serendipity-AI/email-butler.git"
   },
   "keywords": [
     "email",
@@ -30,9 +30,9 @@
   "author": "Jacob Arvidsson",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/the-urban-coder/email-checker-js/issues"
+    "url": "https://github.com/Serendipity-AI/email-butler/issues"
   },
-  "homepage": "https://github.com/the-urban-coder/email-checker-js#readme",
+  "homepage": "https://github.com/Serendipity-AI/email-butler#readme",
   "devDependencies": {
     "@types/jest": "^24.0.15",
     "jest": "^24.8.0",
