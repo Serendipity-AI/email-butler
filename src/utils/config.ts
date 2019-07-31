@@ -3,14 +3,13 @@ export const defaultDomains = [
   "hotmail.com",
   "icloud.com",
   "live.com",
-  "mac.com",
   "me.com",
   "msn.com",
   "outlook.com",
   "yahoo.com",
 ];
 
-export const defaultSecondLevelDomains = ["gmail", "hotmail", "icloud", "live", "mac", "me", "msn", "outlook", "yahoo"];
+export const defaultSecondLevelDomains = ["gmail", "hotmail", "icloud", "live", "me", "msn", "outlook", "yahoo"];
 
 export const defaultTopLevelDomains = [
   "com",

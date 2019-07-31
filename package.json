@@ -1,6 +1,6 @@
 {
   "name": "email-butler",
-  "version": "1.0.7",
+  "version": "1.0.10",
   "description": "Verify emails and suggest correct spelling for the email domain.",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -12,7 +12,7 @@
     "build": "tsc",
     "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
     "lint": "tslint -p tsconfig.json",
-    "prepare": "npm run build",
+    "prepare": "rm -rf lib && npm run build",
     "prepublishOnly": "npm test && npm run lint",
     "preversion": "npm run lint",
     "version": "npm run format && git add -A src",
