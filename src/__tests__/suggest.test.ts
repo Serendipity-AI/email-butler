@@ -3,6 +3,8 @@ import { suggest } from "../index";
 const suggestWithOptions = (email: string) =>
   suggest(email, {
     domains: ["testdomain.org"],
+    secondLevelDomains: [],
+    topLevelDomains: [],
   });
 
 test("Email suggestion", () => {
@@ -21,10 +23,18 @@ test("MSN", () => {
   expect(suggest("test@msn.com")).toBe(undefined);
 });
 
+test("Invalid email", () => {
+  expect(suggest("test@gmail")).toBe(undefined);
+});
+
 test("Override domains", () => {
   expect(suggestWithOptions("test@testdomian.org")).toEqual({
     address: "test",
     domain: "testdomain.org",
     full: "test@testdomain.org",
   });
+});
+
+test("Override domain with old domain", () => {
+  expect(suggestWithOptions("test@gnail.com")).toBe(undefined);
 });
