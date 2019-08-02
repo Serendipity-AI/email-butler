@@ -27,6 +27,10 @@ test("Invalid email", () => {
   expect(suggest("test@gmail")).toBe(undefined);
 });
 
+test("Short email domain", () => {
+  expect(suggest("test@ubs.com")).toBe(undefined);
+});
+
 test("Override domains", () => {
   expect(suggestWithOptions("test@testdomian.org")).toEqual({
     address: "test",
