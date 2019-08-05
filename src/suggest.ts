@@ -1,5 +1,6 @@
 import { defaultDomains, defaultSecondLevelDomains, defaultTopLevelDomains } from "./utils/config";
 import { sift4Distance } from "./utils/sift4Distance";
+import { validate } from "./validate";
 
 export interface EmailButlerResponse {
   address: string;
@@ -14,7 +15,6 @@ export interface EmailButlerOptions {
 }
 
 const domainThreshold = 2;
-const secondLevelThreshold = 2;
 const topLevelThreshold = 2;
 
 const findClosestDomain = (domain: string, domains: string[], threshold: number) => {
@@ -90,6 +90,9 @@ const splitEmail = (email: string) => {
 };
 
 export const suggest = (email: string, options?: Partial<EmailButlerOptions>) => {
+  if (!validate(email)) {
+    return;
+  }
   const emailParts = splitEmail(encodeEmail(email.toLowerCase()));
   if (!emailParts || !emailParts.domain) {
     return;
@@ -104,7 +107,8 @@ export const suggest = (email: string, options?: Partial<EmailButlerOptions>) =>
     return; // If the email is a valid 2nd-level + top-level, do not suggest anything.
   }
 
-  let closestDomain = findClosestDomain(domain, domains, domainThreshold);
+  const threshold = secondLevelDomain.length <= 4 ? 1 : domainThreshold;
+  let closestDomain = findClosestDomain(domain, domains, threshold);
   if (closestDomain) {
     if (closestDomain === domain) {
       // The email address exactly matches one of the supplied domains; do not return a suggestion.
@@ -123,7 +127,7 @@ export const suggest = (email: string, options?: Partial<EmailButlerOptions>) =>
 
   let closestSecondLevelDomain: string | undefined = secondLevelDomain;
   if (!secondLevelDomains.includes(secondLevelDomain)) {
-    closestSecondLevelDomain = findClosestDomain(secondLevelDomain, secondLevelDomains, secondLevelThreshold);
+    closestSecondLevelDomain = findClosestDomain(secondLevelDomain, secondLevelDomains, threshold);
   }
   let closestTopLevelDomain: string | undefined = topLevelDomain;
   if (!topLevelDomains.includes(topLevelDomain)) {
