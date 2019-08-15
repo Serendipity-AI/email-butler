@@ -53,4 +53,5 @@ export const defaultTopLevelDomains = [
   "sg",
   "hu",
   "uk",
+  "ai",
 ];
