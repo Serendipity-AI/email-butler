@@ -1,6 +1,6 @@
 {
   "name": "email-butler",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "description": "Verify emails and suggest correct spelling for the email domain.",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
