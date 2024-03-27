@@ -42,3 +42,7 @@ test("Override domains", () => {
 test("Override domain with old domain", () => {
   expect(suggestWithOptions("test@gnail.com")).toBe(undefined);
 });
+
+test("Exact domain matched", () => {
+  expect(suggest("test@mail.numerique.org", { domains: ["mail.numerique.org", "gmail.com"] })).toBe(undefined);
+});

@@ -24,7 +24,8 @@ const findClosestDomain = (domain: string, domains: string[], threshold: number)
   if (!domain || !domains) {
     return;
   }
-  domains.forEach(currentDomain => {
+  for (let i = 0; i < domains.length; i++) {
+    const currentDomain = domains[i];
     if (domain === currentDomain) {
       return domain;
     }
@@ -33,7 +34,7 @@ const findClosestDomain = (domain: string, domains: string[], threshold: number)
       minDist = dist;
       closestDomain = currentDomain;
     }
-  });
+  }
   if (minDist <= (threshold || topLevelThreshold) && closestDomain !== undefined) {
     return closestDomain;
   } else {
